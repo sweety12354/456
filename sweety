@@ -1,0 +1,36 @@
+
+import java.util.ArrayList;
+import java.util.Scanner;
+public class WordPairGenerator {
+private ArrayList<String[]> wordPairs;
+private ArrayList<String[]> favoritePairs;
+public WordPairGenerator() {
+wordPairs = new ArrayList<String[]>();
+favoritePairs = new ArrayList<String[]>();
+}
+public void addWordPair(String word1, String word2) {
+String[] pair = { word1, word2 };
+wordPairs.add(pair);
+}
+public void listWordPairs() {
+for (int i = 0; i < wordPairs.size(); i++) {
+String[] pair = wordPairs.get(i);
+System.out.println(pair[0] + " - " + pair[1]);
+}
+}
+public void listFavoritePairs() {
+for (int i = 0; i < favoritePairs.size(); i++) {
+String[] pair = favoritePairs.get(i);
+System.out.println(pair[0] + " - " + pair[1]);
+}
+}
+public void markAsFavorite(int index) {
+if (index < wordPairs.size()) {
+String[] pair = wordPairs.get(index);
+favoritePairs.add(pair);
+} else {
+System.out.println("Invalid index.");
+}
+}
+public static void main(String[] args) {
+WordPairGenerator generator = new WordPairGenerator();
